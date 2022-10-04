@@ -16,7 +16,9 @@ public class Consumer extends Thread{
 				ch.get(id);
 				sleep(200);
 				Lock.semProd.release();
-			} catch (InterruptedException e) {}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
