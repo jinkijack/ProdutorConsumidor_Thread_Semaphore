@@ -1,7 +1,7 @@
-
+import java.util.Random;
 public class Producer extends Thread{
-	private int id;
-	private CubbyHole ch;
+	private final int id;
+	private final CubbyHole ch;
 	
 	public Producer(int id, CubbyHole ch) {
 		this.id = id;
@@ -14,9 +14,12 @@ public class Producer extends Thread{
 			try {
 				Lock.semProd.acquire();
 				ch.set(id, i);
-				sleep(200);
+
+				sleep(new Random().nextInt(1000));
 				Lock.semCons.release();
-			} catch (InterruptedException e) {}
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
