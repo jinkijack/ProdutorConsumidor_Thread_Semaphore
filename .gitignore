@@ -32,4 +32,4 @@ hs_err_pid*
 /dataSources/
 /dataSources.local.xml
 # IntelliJ
-/out
+/out/
